@@ -1,0 +1,13 @@
+hyperb <- function(p, ...){       # hyperb = function to be fitted...
+  vargin <- list(...)               # ...
+  x    <- vargin[[1]]               # ...
+  y    <- vargin[[2]]               # ...
+  vmax <- p[1]                    #   by adjusting p = [ vmax ].
+  km   <- p[2]                    #   by adjusting p = [ km ].
+  ff   <- vmax*x / (km+x)         # f = fitting function.
+  r    <- y-ff                    # r = residuals.
+  ss   <- sum(r^2)                # ss = sum of squares.
+  
+  output <- list(ss=ss, r=r, ff=ff) # key value pairs
+  return(output)                    # actually return them
+}
